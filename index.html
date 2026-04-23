@@ -1,81 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>B.R.A.V.E.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="B.R.A.V.E. is a supportive community for kids and teens who have lost a parent."
+  />
   <style>
+    :root {
+      --blue-1: #eaf4ff;
+      --blue-2: #d6eaff;
+      --blue-3: #bddcff;
+      --blue-4: #8ec5ff;
+      --blue-5: #5ca8ff;
+      --blue-6: #2e86de;
+      --blue-7: #1d5fa8;
+      --text-dark: #1f2d3d;
+      --text-soft: #526174;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(41, 97, 165, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8fbff;
-      color: #1f2937;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text-dark);
+      background:
+        radial-gradient(circle at top left, #f7fbff 0%, #edf6ff 35%, #e8f2ff 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(250, 252, 255, 0.82);
+      border-bottom: 1px solid rgba(142, 197, 255, 0.25);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 76px;
+    }
+
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--blue-7);
+    }
+
+    .brand-mini img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      color: var(--text-soft);
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-7);
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 12px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(92, 168, 255, 0.12);
+      color: var(--blue-7);
+      border: 1px solid rgba(92, 168, 255, 0.18);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      color: var(--blue-7);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 10px;
+      font-size: clamp(18px, 2.3vw, 28px);
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .hero-description {
+      max-width: 640px;
+      margin: 0 0 28px;
+      font-size: 18px;
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--blue-6), var(--blue-5));
+      color: var(--white);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.84);
+      color: var(--blue-7);
+      border: 1px solid rgba(92, 168, 255, 0.24);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(239,247,255,0.92));
+      border: 1px solid rgba(142, 197, 255, 0.22);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(142,197,255,0.34) 0%, rgba(142,197,255,0) 70%);
+      top: -90px;
+      right: -80px;
+    }
+
+    .hero-logo {
+      width: min(100%, 380px);
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 12px 24px rgba(46, 134, 222, 0.14));
+    }
+
+    .hero-card h2 {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: 24px;
+      color: var(--blue-7);
+    }
+
+    .hero-card p {
+      margin: 0;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 16px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(142, 197, 255, 0.2);
+      border-radius: 18px;
+      padding: 18px;
       text-align: center;
     }
-    header {
-      padding: 40px 20px;
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      color: var(--blue-7);
+      margin-bottom: 4px;
     }
-    h1 {
-      color: #2563eb;
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-    .tagline {
-      font-size: 18px;
-      color: #4b5563;
-      margin-bottom: 40px;
-    }
-    .box {
-      background: white;
-      padding: 30px;
-      margin: 20px auto;
-      max-width: 600px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      color: #6b7280;
+
+    .stat span {
+      color: var(--text-soft);
       font-size: 14px;
+    }
+
+    .section {
+      padding: 36px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 42px);
+      color: var(--blue-7);
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(142, 197, 255, 0.22);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: var(--blue-7);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-soft);
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .soft-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(239,247,255,0.88));
+      border: 1px solid rgba(142, 197, 255, 0.22);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .soft-panel h3 {
+      margin: 0 0 14px;
+      font-size: 26px;
+      color: var(--blue-7);
+    }
+
+    .soft-panel p,
+    .soft-panel li {
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    .soft-panel ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .cta {
+      padding: 24px 0 64px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--blue-7), var(--blue-6));
+      color: white;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(29, 95, 168, 0.22);
+      padding: 42px 28px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 42px);
+    }
+
+    .cta-box p {
+      margin: 0 auto 22px;
+      max-width: 720px;
+      color: rgba(255,255,255,0.9);
+      font-size: 17px;
+    }
+
+    .footer {
+      padding: 24px 0 40px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .card-grid,
+      .split-section,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-wrap {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero h1 {
+        letter-spacing: 0.01em;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand-mini">
+        <img src="BraveLogo.png" alt="B.R.A.V.E. logo">
+        <span>B.R.A.V.E.</span>
+      </div>
 
-<header>
-  <h1>B.R.A.V.E.</h1>
-  <h2>Building Resilience After Very Difficult Experiences</h2>
-  <div class="tagline">
-    Support for kids and teens who have lost a parent
-  </div>
-</header>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#who">Who It's For</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="box">
-  <h3>Welcome</h3>
-  <p>
-    B.R.A.V.E. is a supportive community for kids and teens navigating the loss of a parent. 
-    We create a safe space for connection, understanding, and healing.
-  </p>
-  <a class="button" href="mailto:connect@braveafterloss.org">Get Connected</a>
-</div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Support for kids and teens who have lost a parent</div>
+          <h1>B.R.A.V.E.</h1>
+          <p class="hero-subtitle">Building Resilience After Very Difficult Experiences</p>
+          <p class="hero-description">
+            A compassionate community created for young people navigating the loss of a parent.
+            B.R.A.V.E. offers connection, understanding, and a place to feel supported through grief and healing.
+          </p>
 
-<footer>
-  © B.R.A.V.E. | braveafterloss.org
-</footer>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:connect@braveafterloss.org">Connect With Us</a>
+            <a class="button button-secondary" href="#about">Learn More</a>
+          </div>
+        </div>
 
+        <div class="hero-card">
+          <img class="hero-logo" src="Brave%20Logo.png" alt="B.R.A.V.E. logo">
+          <h2>You do not have to go through this alone.</h2>
+          <p>
+            B.R.A.V.E. exists to create space for support, healing, and meaningful connection.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Support</strong>
+              <span>for kids and teens</span>
+            </div>
+            <div class="stat">
+              <strong>Connection</strong>
+              <span>through shared experience</span>
+            </div>
+            <div class="stat">
+              <strong>Hope</strong>
+              <span>for healing and growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">What B.R.A.V.E. Is</h2>
+        <p class="section-intro">
+          B.R.A.V.E. is a supportive community for kids and teens navigating the loss of a parent.
+          We create a safe place where grief can be acknowledged, connection can grow, and healing can begin.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Safe Space</h3>
+            <p>
+              A welcoming environment where young people can feel seen, supported, and understood.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Peer Connection</h3>
+            <p>
+              Opportunities to connect with others who understand the experience of parent loss.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Encouragement</h3>
+            <p>
+              Gentle support that helps kids and teens move forward with courage, community, and hope.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="section">
+      <div class="container split-section">
+        <div class="soft-panel">
+          <h3>Why B.R.A.V.E. Exists</h3>
+          <p>
+            Grief can feel isolating, especially for young people. B.R.A.V.E. was created to ensure
+            that no child or teen has to carry the loss of a parent alone.
+          </p>
+          <p>
+            Through connection, compassion, and shared experiences, we create space for healing,
+            resilience, and belonging.
+          </p>
+        </div>
+
+        <div class="soft-panel">
+          <h3>Our Mission</h3>
+          <p>
+            To provide a compassionate and supportive community where kids and teens who have lost
+            a parent can connect, feel understood, and begin to heal.
+          </p>
+          <ul>
+            <li>Build community after loss</li>
+            <li>Create safe opportunities for connection</li>
+            <li>Support healing through shared understanding</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="who" class="section">
+      <div class="container">
+        <h2 class="section-title">Who It's For</h2>
+        <p class="section-intro">
+          B.R.A.V.E. is designed for kids and teens who have experienced the loss of a parent and need a place to feel supported.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Children</h3>
+            <p>
+              Age-appropriate support and encouragement for younger children navigating loss.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Teens</h3>
+            <p>
+              A space for teens to connect, process, and feel less alone in what they are carrying.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Families</h3>
+            <p>
+              A caring community that helps families find support, connection, and next steps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect" class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Get Connected</h2>
+          <p>
+            If you or someone you know could benefit from B.R.A.V.E., reach out and connect with us.
+            We’re building something meaningful, and we’d love to hear from you.
+          </p>
+          <a class="button button-secondary" href="mailto:connect@braveafterloss.org" style="background: white; color: var(--blue-7);">
+            Email B.R.A.V.E.
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © B.R.A.V.E. | braveafterloss.org
+  </footer>
 </body>
 </html>
