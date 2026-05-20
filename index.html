@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>B.R.A.V.E.</title>
+  <title>BRAVE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="B.R.A.V.E. is a supportive community for kids and teens who have lost a parent."
+    content="BRAVE is a supportive community for kids and teens who have lost a parent."
   />
+
   <style>
     :root {
       --blue-1: #eaf4ff;
@@ -156,6 +157,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-top: 24px;
     }
 
     .button {
@@ -183,6 +185,36 @@
       background: rgba(255,255,255,0.84);
       color: var(--blue-7);
       border: 1px solid rgba(92, 168, 255, 0.24);
+    }
+
+    .event-feature {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+
+    .event-feature h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      color: var(--blue-7);
+      margin-bottom: 12px;
+    }
+
+    .event-feature p {
+      color: var(--text-soft);
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .event-flyer {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .event-flyer:hover {
+      transform: scale(1.01);
     }
 
     .hero-card {
@@ -403,12 +435,15 @@
     }
   </style>
 </head>
+
 <body>
+
   <header class="site-header">
     <div class="container nav-wrap">
+
       <div class="brand-mini">
-        <img src="BraveBrandLogo.png" alt="B.R.A.V.E. logo">
-        <span>B.R.A.V.E.</span>
+        <img src="BraveBrandLogo.png" alt="BRAVE logo">
+        <span>BRAVE</span>
       </div>
 
       <nav class="nav-links">
@@ -417,200 +452,113 @@
         <a href="#who">Who It's For</a>
         <a href="#connect">Connect</a>
       </nav>
+
     </div>
   </header>
 
   <main>
+
+    <section class="event-feature">
+      <div class="container">
+
+        <div class="eyebrow">
+          Teen Community Event
+        </div>
+
+        <h2>Paint & Connect</h2>
+
+        <p>
+          A free community event for teens navigating grief, loss, and healing through creativity and connection.
+        </p>
+
+        <a href="https://forms.gle/bN1RNBw9Gf2DntAB8" target="_blank">
+          <img src="Eventflyer.jpg" alt="Paint & Connect event flyer" class="event-flyer">
+        </a>
+
+        <a class="button button-primary" href="https://forms.gle/bN1RNBw9Gf2DntAB8" target="_blank">
+          Register Here 💙
+        </a>
+
+      </div>
+    </section>
+
     <section class="hero">
       <div class="container hero-grid">
+
         <div class="hero-copy">
-          <div class="eyebrow">Support for kids and teens who have lost a parent</div>
-          <h1>B.R.A.V.E.</h1>
-          <p class="hero-subtitle">Building Resilience After Very Difficult Experiences</p>
-          <p class="hero-description">
-            A compassionate community created for young people navigating the loss of a parent.
-            B.R.A.V.E. offers connection, understanding, and a place to feel supported through grief and healing.
+
+          <div class="eyebrow">
+            Support for kids and teens who have lost a parent
+          </div>
+
+          <h1>BRAVE</h1>
+
+          <p class="hero-subtitle">
+            Building Resilience After Very Difficult Experiences
           </p>
 
-        <div class="hero-actions">
-  <a class="button button-primary" href="https://forms.gle/QfTQ6HxG2vxamp4h6" target="_blank">
-    Join Our Community 💙
-  </a>
+          <p class="hero-description">
+            A compassionate community created for young people navigating the loss of a parent.
+            BRAVE offers connection, understanding, and a place to feel supported through grief and healing.
+          </p>
 
-  <a class="button button-secondary" href="mailto:connect@braveafterloss.org">
-    Connect With Us
-  </a>
+          <div class="hero-actions">
 
-  <a class="button button-secondary" href="#about">
-    Learn More
-  </a>
-</div>
+            <a class="button button-primary" href="https://forms.gle/QfTQ6HxG2vxamp4h6" target="_blank">
+              Join Our Community 💙
+            </a>
+
+            <a class="button button-secondary" href="mailto:connect@braveafterloss.org">
+              Connect With Us
+            </a>
+
+            <a class="button button-secondary" href="#about">
+              Learn More
+            </a>
+
+          </div>
+
+        </div>
 
         <div class="hero-card">
-          <img class="hero-logo" src="BraveBrandLogo.png" alt="B.R.A.V.E. logo">
+
+          <img class="hero-logo" src="BraveBrandLogo.png" alt="BRAVE logo">
+
           <h2>You do not have to go through this alone.</h2>
+
           <p>
-            B.R.A.V.E. exists to create space for support, healing, and meaningful connection.
+            BRAVE exists to create space for support, healing, and meaningful connection.
           </p>
 
           <div class="stats">
+
             <div class="stat">
               <strong>Support</strong>
               <span>for kids and teens</span>
             </div>
+
             <div class="stat">
               <strong>Connection</strong>
               <span>through shared experience</span>
             </div>
+
             <div class="stat">
               <strong>Hope</strong>
               <span>for healing and growth</span>
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">What B.R.A.V.E. Is</h2>
-        <p class="section-intro">
-          B.R.A.V.E. is a supportive community for kids and teens navigating the loss of a parent.
-          We create a safe place where grief can be acknowledged, connection can grow, and healing can begin.
-        </p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>Safe Space</h3>
-            <p>
-              A welcoming environment where young people can feel seen, supported, and understood.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Peer Connection</h3>
-            <p>
-              Opportunities to connect with others who understand the experience of parent loss.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Encouragement</h3>
-            <p>
-              Gentle support that helps kids and teens move forward with courage, community, and hope.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mission" class="section">
-     <section id="story" class="section">
-  <div class="container">
-
-    <h2 class="section-title">Our Story</h2>
-
-    <p style="text-align:center; font-size:20px; color:#475569; margin-bottom:30px;">
-      What started with loss became a space for connection.
-    </p>
-
-    <div class="soft-panel">
-
-      <p>
-        After losing their father to a drunk driver in 2019, siblings Raina and Cole McCarter experienced firsthand how isolating grief can feel, especially as young people. They were both in elementary school at the time, just 9 and 7 years old. While surrounded by others, there were few spaces where they could truly connect with peers who understood what they were going through.
-      </p>
-
-      <p>
-        Over time, that experience became something more than just personal. It became a purpose. As Raina moved through her middle school years, she began to recognize that many other kids and teens were navigating the same loss without a place to feel seen, heard, or understood.
-      </p>
-
-      <p>
-        In November 2025, she took the first step by bringing together a small group of teens who had also lost a parent. What began as a simple gathering quickly revealed the power of connection.
-      </p>
-
-      <p>
-        From that moment, <strong>B.R.A.V.E. (Building Resilience After Very Difficult Experiences)</strong> was created. Its purpose is to build a community rooted in support, understanding, and healing for kids and teens who have lost a parent.
-      </p>
-
-    </div>
-  </div>
-</section>
-        
-
-      <div class="container split-section">
-        <div class="soft-panel">
-          <h3>Why B.R.A.V.E. Exists</h3>
-          <p>
-            Grief can feel isolating, especially for young people. B.R.A.V.E. was created to ensure
-            that no child or teen has to carry the loss of a parent alone.
-          </p>
-          <p>
-            Through connection, compassion, and shared experiences, we create space for healing,
-            resilience, and belonging.
-          </p>
-        </div>
-
-        <div class="soft-panel">
-          <h3>Our Mission</h3>
-          <p>
-            To provide a compassionate and supportive community where kids and teens who have lost
-            a parent can connect, feel understood, and begin to heal.
-          </p>
-          <ul>
-            <li>Build community after loss</li>
-            <li>Create safe opportunities for connection</li>
-            <li>Support healing through shared understanding</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="who" class="section">
-      <div class="container">
-        <h2 class="section-title">Who It's For</h2>
-        <p class="section-intro">
-          B.R.A.V.E. is designed for kids and teens who have experienced the loss of a parent and need a place to feel supported.
-        </p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>Children</h3>
-            <p>
-              Age-appropriate support and encouragement for younger children navigating loss.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Teens</h3>
-            <p>
-              A space for teens to connect, process, and feel less alone in what they are carrying.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Families</h3>
-            <p>
-              A caring community that helps families find support, connection, and next steps.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="connect" class="cta">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Get Connected</h2>
-          <p>
-            If you or someone you know could benefit from B.R.A.V.E., reach out and connect with us.
-            We’re building something meaningful, and we’d love to hear from you.
-          </p>
-          <a class="button button-secondary" href="mailto:connect@braveafterloss.org" style="background: white; color: var(--blue-7);">
-            Email B.R.A.V.E.
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    © B.R.A.V.E. | braveafterloss.org
+    © BRAVE | braveafterloss.org
   </footer>
+
 </body>
 </html>
